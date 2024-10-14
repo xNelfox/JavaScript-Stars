@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Nougat-ExtraBlack';
+    src: url('assets/Nougat-ExtraBlack.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --black: #000000;
+    --gray: #0f0f0f;
+}
+
+body {
+    background-color: var(--gray);
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#canvas {
+    border: .75vh solid var(--black);
+    width: 1250px;
+    height: 625px;
+}
