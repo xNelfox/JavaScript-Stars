@@ -35,15 +35,28 @@ let enemy;
 let doneDrop = false;
 let drop;
 let resultShown = false;
-let trophies = 0;
-let gold = 100;
-let gems = 0;
 let commonStarrdropAmont = 0;
 let rareStarrdropAmont = 0;
 let goTo = "menu";
 
 canvas.width = 1250;
 canvas.height = 625;
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+let trophies = parseInt(localStorage.getItem("trophiesL")) || 0;
+let gold = parseInt(localStorage.getItem("goldL")) || 100;
+let gems = parseInt(localStorage.getItem("gemsL")) || 0;
+
+function saveToLocalStorage() {
+    localStorage.setItem("trophiesL", trophies);
+    localStorage.setItem("goldL", gold);
+    localStorage.setItem("gemsL", gems);
+}
+
+setInterval(() => {
+    saveToLocalStorage();
+}, 1000);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -109,7 +122,7 @@ canvas.addEventListener("click", () => {
                 scene = "commonStarrdrop";
             }
         } else if(cursor.x > 1010 && cursor.x < 1140 && cursor.y > 520 && cursor.y < 600) {
-            if(commonStarrdropAmont > 0) {
+            if(rareStarrdropAmont > 0) {
                 rareStarrdropAmont--;
                 goTo = "menu";
                 scene = "rareStarrdrop";
